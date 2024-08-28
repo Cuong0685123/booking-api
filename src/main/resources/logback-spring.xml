@@ -15,7 +15,7 @@
 
     <appender name="RollingFile"
                   class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS}/rockstar-api.log</file>
+        <file>${LOGS}/booking-api.log</file>
         <encoder
             class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>[%d] [%p] [%t] [%logger{40}.%M:%L]: %m%n</Pattern>

@@ -22,4 +22,8 @@ public class HelloController {
     return "Hello from Booking API";
   }
 
+  @GetMapping("hello/admin")
+  public String helloAdmin() {
+    return "Hello Admin";
+  }
 }

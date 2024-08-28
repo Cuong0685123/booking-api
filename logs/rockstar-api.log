@@ -1,226 +1,108 @@
-[2024-08-24 19:26:50,208] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 44195 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
-[2024-08-24 19:26:50,209] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
-[2024-08-24 19:26:50,210] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
-[2024-08-24 19:26:50,247] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-[2024-08-24 19:26:50,248] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-[2024-08-24 19:26:50,585] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-[2024-08-24 19:26:50,614] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 23 ms. Found 1 JPA repository interface.
-[2024-08-24 19:26:51,195] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
-[2024-08-24 19:26:51,237] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 989 ms
-[2024-08-24 19:26:51,290] [WARN] [restartedMain] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh:632]: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.mariadb.jdbc.Driver
-[2024-08-24 19:26:51,309] [INFO] [restartedMain] [o.s.b.a.l.ConditionEvaluationReportLogger.logMessage:82]: 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-[2024-08-24 19:26:51,322] [ERROR] [restartedMain] [o.springframework.boot.SpringApplication.reportFailure:859]: Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.mariadb.jdbc.Driver
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
-	at com.tc.booking.api.BookingApiApplication.main(BookingApiApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.mariadb.jdbc.Driver
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1337)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1167)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	... 15 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.mariadb.jdbc.Driver
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1337)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1167)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	... 25 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.mariadb.jdbc.Driver
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	... 39 common frames omitted
-Caused by: java.lang.IllegalStateException: Cannot load driver class: org.mariadb.jdbc.Driver
-	at org.springframework.util.Assert.state(Assert.java:97)
-	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:175)
-	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49)
-	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:55)
-	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:117)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 40 common frames omitted
-[2024-08-24 19:27:45,090] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 44368 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
-[2024-08-24 19:27:45,092] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
-[2024-08-24 19:27:45,093] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
-[2024-08-24 19:27:45,128] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-[2024-08-24 19:27:45,128] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-[2024-08-24 19:27:45,406] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-[2024-08-24 19:27:45,432] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interface.
-[2024-08-24 19:27:45,950] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
-[2024-08-24 19:27:45,998] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 870 ms
-[2024-08-24 19:27:46,359] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
-[2024-08-24 19:27:46,667] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
-[2024-08-24 19:27:46,775] [WARN] [restartedMain] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh:632]: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepository' defined in com.tc.booking.repo.UserRepository defined in @EnableJpaRepositories declared on BookingBootConfig: Not a managed type: class com.tc.booking.model.entity.User
-[2024-08-24 19:27:46,776] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'
-[2024-08-24 19:27:46,790] [INFO] [restartedMain] [o.s.b.a.l.ConditionEvaluationReportLogger.logMessage:82]: 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-[2024-08-24 19:27:46,805] [ERROR] [restartedMain] [o.springframework.boot.SpringApplication.reportFailure:859]: Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepository' defined in com.tc.booking.repo.UserRepository defined in @EnableJpaRepositories declared on BookingBootConfig: Not a managed type: class com.tc.booking.model.entity.User
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:969)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
-	at com.tc.booking.api.BookingApiApplication.main(BookingApiApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: java.lang.IllegalArgumentException: Not a managed type: class com.tc.booking.model.entity.User
-	at org.hibernate.metamodel.model.domain.internal.JpaMetamodelImpl.managedType(JpaMetamodelImpl.java:194)
-	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:469)
-	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:99)
-	at org.springframework.data.jpa.repository.support.JpaMetamodelEntityInformation.<init>(JpaMetamodelEntityInformation.java:82)
-	at org.springframework.data.jpa.repository.support.JpaEntityInformationSupport.getEntityInformation(JpaEntityInformationSupport.java:69)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getEntityInformation(JpaRepositoryFactory.java:249)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:214)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:197)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:1)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:317)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:286)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:292)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784)
-	... 21 common frames omitted
-[2024-08-24 19:29:53,538] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 44658 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
-[2024-08-24 19:29:53,540] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
-[2024-08-24 19:29:53,541] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
-[2024-08-24 19:29:53,576] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-[2024-08-24 19:29:53,576] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-[2024-08-24 19:29:53,862] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-[2024-08-24 19:29:53,889] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 22 ms. Found 1 JPA repository interface.
-[2024-08-24 19:29:54,393] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
-[2024-08-24 19:29:54,444] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 867 ms
-[2024-08-24 19:29:54,766] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
-[2024-08-24 19:29:54,961] [ERROR] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:426]: Failed to initialize JPA EntityManagerFactory: Entity 'com.tc.booking.model.entity.User' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
-[2024-08-24 19:29:54,962] [WARN] [restartedMain] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh:632]: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'com.tc.booking.model.entity.User' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
-[2024-08-24 19:29:54,975] [INFO] [restartedMain] [o.s.b.a.l.ConditionEvaluationReportLogger.logMessage:82]: 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-[2024-08-24 19:29:54,989] [ERROR] [restartedMain] [o.springframework.boot.SpringApplication.reportFailure:859]: Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Entity 'com.tc.booking.model.entity.User' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
-	at com.tc.booking.api.BookingApiApplication.main(BookingApiApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.hibernate.AnnotationException: Entity 'com.tc.booking.model.entity.User' has no identifier (every '@Entity' class must declare or inherit at least one '@Id' or '@EmbeddedId' property)
-	at org.hibernate.boot.model.internal.InheritanceState.determineDefaultAccessType(InheritanceState.java:279)
-	at org.hibernate.boot.model.internal.InheritanceState.getElementsToProcess(InheritanceState.java:215)
-	at org.hibernate.boot.model.internal.InheritanceState.postProcess(InheritanceState.java:160)
-	at org.hibernate.boot.model.internal.EntityBinder.handleIdentifier(EntityBinder.java:407)
-	at org.hibernate.boot.model.internal.EntityBinder.bindEntityClass(EntityBinder.java:248)
-	at org.hibernate.boot.model.internal.AnnotationBinder.bindClass(AnnotationBinder.java:399)
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:259)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:281)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:324)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784)
-	... 20 common frames omitted
-[2024-08-24 19:33:30,960] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 45103 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
-[2024-08-24 19:33:30,962] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
-[2024-08-24 19:33:30,963] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
-[2024-08-24 19:33:30,995] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-[2024-08-24 19:33:30,996] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-[2024-08-24 19:33:31,272] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-[2024-08-24 19:33:31,298] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interface.
-[2024-08-24 19:33:31,789] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
-[2024-08-24 19:33:31,835] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 839 ms
-[2024-08-24 19:33:32,155] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
-[2024-08-24 19:33:32,821] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
-[2024-08-24 19:33:33,219] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
-[2024-08-24 19:33:33,244] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
-[2024-08-24 19:33:33,253] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 2.628 seconds (process running for 2.878)
-[2024-08-24 19:34:08,194] [INFO] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'
-[2024-08-24 19:34:28,206] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 45307 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
-[2024-08-24 19:34:28,207] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
-[2024-08-24 19:34:28,208] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
-[2024-08-24 19:34:28,245] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-[2024-08-24 19:34:28,245] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-[2024-08-24 19:34:28,536] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-[2024-08-24 19:34:28,562] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interface.
-[2024-08-24 19:34:29,094] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
-[2024-08-24 19:34:29,151] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 905 ms
-[2024-08-24 19:34:29,483] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
-[2024-08-24 19:34:30,133] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
-[2024-08-24 19:34:30,579] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
-[2024-08-24 19:34:30,602] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
-[2024-08-24 19:34:30,611] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 2.758 seconds (process running for 3.064)
-[2024-08-24 19:35:00,008] [INFO] [http-nio-8000-exec-2] [o.s.web.servlet.DispatcherServlet.initServletBean:532]: Initializing Servlet 'dispatcherServlet'
-[2024-08-24 19:35:00,009] [INFO] [http-nio-8000-exec-2] [o.s.web.servlet.DispatcherServlet.initServletBean:554]: Completed initialization in 1 ms
-[2024-08-24 19:35:00,034] [INFO] [http-nio-8000-exec-2] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:13:51,450] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 7482 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
+[2024-08-27 07:13:51,458] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
+[2024-08-27 07:13:51,459] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
+[2024-08-27 07:13:51,500] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-08-27 07:13:51,501] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-08-27 07:13:51,873] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-08-27 07:13:51,902] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 23 ms. Found 1 JPA repository interface.
+[2024-08-27 07:13:52,559] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
+[2024-08-27 07:13:52,599] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 1098 ms
+[2024-08-27 07:13:52,658] [DEBUG] [restartedMain] [com.tc.booking.api.web.JwtAuthFilter.init:240]: Filter 'jwtAuthFilter' configured for use
+[2024-08-27 07:13:53,026] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-08-27 07:13:53,709] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 07:13:54,024] [INFO] [restartedMain] [o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer.configure:83]: Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[2024-08-27 07:13:54,025] [WARN] [restartedMain] [o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure:72]: Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[2024-08-27 07:13:54,248] [INFO] [restartedMain] [o.s.s.web.DefaultSecurityFilterChain.<init>:54]: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74a4c8c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25152b50, org.springframework.security.web.context.SecurityContextHolderFilter@4db83981, org.springframework.security.web.header.HeaderWriterFilter@7b6a5d0b, org.springframework.security.web.authentication.logout.LogoutFilter@51c93312, com.tc.booking.api.web.JwtAuthFilter@69a513f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ead61cc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@470e400c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77a66131, org.springframework.security.web.session.SessionManagementFilter@11a1d8ba, org.springframework.security.web.access.ExceptionTranslationFilter@82e808f, org.springframework.security.web.access.intercept.AuthorizationFilter@37ccd58b]
+[2024-08-27 07:13:54,438] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
+[2024-08-27 07:13:54,461] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
+[2024-08-27 07:13:54,471] [INFO] [restartedMain] [com.tc.booking.api.AppListener.onContextRefresh:27]: Application context refreshed
+[2024-08-27 07:13:54,580] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 3.504 seconds (process running for 3.799)
+[2024-08-27 07:20:51,823] [INFO] [http-nio-8000-exec-1] [o.s.web.servlet.DispatcherServlet.initServletBean:532]: Initializing Servlet 'dispatcherServlet'
+[2024-08-27 07:20:51,825] [INFO] [http-nio-8000-exec-1] [o.s.web.servlet.DispatcherServlet.initServletBean:554]: Completed initialization in 0 ms
+[2024-08-27 07:20:51,851] [INFO] [http-nio-8000-exec-1] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:20:54,373] [INFO] [http-nio-8000-exec-3] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:20:55,147] [INFO] [http-nio-8000-exec-4] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:20:55,629] [INFO] [http-nio-8000-exec-5] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:20:56,712] [INFO] [http-nio-8000-exec-6] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:20:57,691] [INFO] [http-nio-8000-exec-7] [c.t.b.api.controller.HelloController.hello:21]: GET /hello
+[2024-08-27 07:37:58,932] [INFO] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 08:29:37,120] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 6506 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
+[2024-08-27 08:29:37,122] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
+[2024-08-27 08:29:37,123] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
+[2024-08-27 08:29:37,166] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-08-27 08:29:37,167] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-08-27 08:29:37,530] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-08-27 08:29:37,563] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interface.
+[2024-08-27 08:29:38,306] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
+[2024-08-27 08:29:38,348] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 1181 ms
+[2024-08-27 08:29:38,406] [DEBUG] [restartedMain] [com.tc.booking.api.web.JwtAuthFilter.init:240]: Filter 'jwtAuthFilter' configured for use
+[2024-08-27 08:29:38,772] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-08-27 08:29:39,465] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 08:29:39,784] [INFO] [restartedMain] [o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer.configure:83]: Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[2024-08-27 08:29:39,785] [WARN] [restartedMain] [o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure:72]: Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[2024-08-27 08:29:40,011] [INFO] [restartedMain] [o.s.s.web.DefaultSecurityFilterChain.<init>:54]: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5486b9ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@780867ec, org.springframework.security.web.context.SecurityContextHolderFilter@24fd7f6c, org.springframework.security.web.header.HeaderWriterFilter@1d0314d9, org.springframework.security.web.authentication.logout.LogoutFilter@fdec05d, com.tc.booking.api.web.JwtAuthFilter@55aaca32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d1d2f3c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@df712e4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@366e40d0, org.springframework.security.web.session.SessionManagementFilter@7c45e060, org.springframework.security.web.access.ExceptionTranslationFilter@241e5f9f, org.springframework.security.web.access.intercept.AuthorizationFilter@6d54ee7]
+[2024-08-27 08:29:40,190] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
+[2024-08-27 08:29:40,212] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
+[2024-08-27 08:29:40,220] [INFO] [restartedMain] [com.tc.booking.api.AppListener.onContextRefresh:27]: Application context refreshed
+[2024-08-27 08:29:40,322] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 3.612 seconds (process running for 3.934)
+[2024-08-27 09:24:02,561] [INFO] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 09:24:10,144] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 13461 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
+[2024-08-27 09:24:10,145] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
+[2024-08-27 09:24:10,146] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
+[2024-08-27 09:24:10,184] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-08-27 09:24:10,185] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-08-27 09:24:10,522] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-08-27 09:24:10,554] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 26 ms. Found 1 JPA repository interface.
+[2024-08-27 09:24:11,191] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
+[2024-08-27 09:24:11,237] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 1052 ms
+[2024-08-27 09:24:11,301] [DEBUG] [restartedMain] [com.tc.booking.api.web.JwtAuthFilter.init:240]: Filter 'jwtAuthFilter' configured for use
+[2024-08-27 09:24:11,614] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-08-27 09:24:12,219] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 09:24:12,532] [INFO] [restartedMain] [o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer.configure:83]: Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[2024-08-27 09:24:12,533] [WARN] [restartedMain] [o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure:72]: Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[2024-08-27 09:24:12,734] [INFO] [restartedMain] [o.s.s.web.DefaultSecurityFilterChain.<init>:54]: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72b69f7d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20089070, org.springframework.security.web.context.SecurityContextHolderFilter@9b50430, org.springframework.security.web.header.HeaderWriterFilter@77a66131, org.springframework.security.web.authentication.logout.LogoutFilter@4879eea3, com.tc.booking.api.web.JwtAuthFilter@55c97e6e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2bb97685, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5707c193, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@583d8d6c, org.springframework.security.web.session.SessionManagementFilter@34d4d1e8, org.springframework.security.web.access.ExceptionTranslationFilter@74a4c8c2, org.springframework.security.web.access.intercept.AuthorizationFilter@7c85dd36]
+[2024-08-27 09:24:12,921] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
+[2024-08-27 09:24:12,943] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
+[2024-08-27 09:24:12,953] [INFO] [restartedMain] [com.tc.booking.api.AppListener.onContextRefresh:27]: Application context refreshed
+[2024-08-27 09:24:13,053] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 3.269 seconds (process running for 3.535)
+[2024-08-27 09:29:56,251] [INFO] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 09:30:02,871] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 13984 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
+[2024-08-27 09:30:02,873] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
+[2024-08-27 09:30:02,873] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
+[2024-08-27 09:30:02,907] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-08-27 09:30:02,908] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-08-27 09:30:03,233] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-08-27 09:30:03,259] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interface.
+[2024-08-27 09:30:03,856] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
+[2024-08-27 09:30:03,894] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 986 ms
+[2024-08-27 09:30:03,951] [DEBUG] [restartedMain] [com.tc.booking.api.web.JwtAuthFilter.init:240]: Filter 'jwtAuthFilter' configured for use
+[2024-08-27 09:30:04,264] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-08-27 09:30:04,888] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 09:30:05,214] [INFO] [restartedMain] [o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer.configure:83]: Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[2024-08-27 09:30:05,215] [WARN] [restartedMain] [o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure:72]: Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[2024-08-27 09:30:05,423] [INFO] [restartedMain] [o.s.s.web.DefaultSecurityFilterChain.<init>:54]: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42e76180, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7073f238, org.springframework.security.web.context.SecurityContextHolderFilter@577ef459, org.springframework.security.web.header.HeaderWriterFilter@1786c39a, org.springframework.security.web.authentication.logout.LogoutFilter@36fc9fda, com.tc.booking.api.web.JwtAuthFilter@4c2c3356, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e13b660, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b02e0ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7343afd9, org.springframework.security.web.session.SessionManagementFilter@4879eea3, org.springframework.security.web.access.ExceptionTranslationFilter@52434e84, org.springframework.security.web.access.intercept.AuthorizationFilter@7508f5d9]
+[2024-08-27 09:30:05,611] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
+[2024-08-27 09:30:05,633] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
+[2024-08-27 09:30:05,643] [INFO] [restartedMain] [com.tc.booking.api.AppListener.onContextRefresh:27]: Application context refreshed
+[2024-08-27 09:30:05,741] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 3.217 seconds (process running for 3.471)
+[2024-08-27 09:31:33,330] [INFO] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 09:32:29,411] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:50]: Starting BookingApiApplication using Java 17.0.9 with PID 14263 (/home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api/target/classes started by binh in /home/binh/workspace/ws-mcvsoft/ws-tuancuong/booking/gitrepo/booking-api)
+[2024-08-27 09:32:29,413] [DEBUG] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarting:51]: Running with Spring Boot v3.3.3, Spring v6.1.8
+[2024-08-27 09:32:29,413] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStartupProfileInfo:660]: The following 1 profile is active: "local"
+[2024-08-27 09:32:29,451] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-08-27 09:32:29,451] [INFO] [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo:252]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-08-27 09:32:29,787] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:143]: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-08-27 09:32:29,818] [INFO] [restartedMain] [o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn:211]: Finished Spring Data repository scanning in 26 ms. Found 1 JPA repository interface.
+[2024-08-27 09:32:30,421] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.initialize:111]: Tomcat initialized with port 8000 (http)
+[2024-08-27 09:32:30,459] [INFO] [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296]: Root WebApplicationContext: initialization completed in 1007 ms
+[2024-08-27 09:32:30,518] [DEBUG] [restartedMain] [com.tc.booking.api.web.JwtAuthFilter.init:240]: Filter 'jwtAuthFilter' configured for use
+[2024-08-27 09:32:30,828] [INFO] [restartedMain] [o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer:87]: No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-08-27 09:32:31,448] [INFO] [restartedMain] [o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:437]: Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-08-27 09:32:31,766] [INFO] [restartedMain] [o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer.configure:83]: Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+[2024-08-27 09:32:31,767] [WARN] [restartedMain] [o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure:72]: Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+[2024-08-27 09:32:31,972] [INFO] [restartedMain] [o.s.s.web.DefaultSecurityFilterChain.<init>:54]: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60c15a05, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b5cd5ee, org.springframework.security.web.context.SecurityContextHolderFilter@7d73372, org.springframework.security.web.header.HeaderWriterFilter@f788e72, org.springframework.security.web.authentication.logout.LogoutFilter@9096e2a, com.tc.booking.api.web.JwtAuthFilter@74d685cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55550cfa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c85dd36, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fadf2ef, org.springframework.security.web.session.SessionManagementFilter@54dcd496, org.springframework.security.web.access.ExceptionTranslationFilter@522f879d, org.springframework.security.web.access.intercept.AuthorizationFilter@2d4ad596]
+[2024-08-27 09:32:32,159] [INFO] [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer.startServer:59]: LiveReload server is running on port 35729
+[2024-08-27 09:32:32,181] [INFO] [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer.start:243]: Tomcat started on port 8000 (http) with context path '/'
+[2024-08-27 09:32:32,191] [INFO] [restartedMain] [com.tc.booking.api.AppListener.onContextRefresh:27]: Application context refreshed
+[2024-08-27 09:32:32,289] [INFO] [restartedMain] [c.tc.booking.api.BookingApiApplication.logStarted:56]: Started BookingApiApplication in 3.235 seconds (process running for 3.505)
+[2024-08-27 09:33:08,304] [INFO] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy:650]: Closing JPA EntityManagerFactory for persistence unit 'default'

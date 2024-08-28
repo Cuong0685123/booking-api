@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.web.cors.CorsConfiguration;
@@ -25,11 +26,12 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  *
  * @author binh
  */
+@EnableScheduling
 @EnableJpaRepositories(basePackages = {"com.tc.booking.repo"})
 @EntityScan(basePackages = {"com.tc.booking.model"})
 @Configuration
 public class BookingBootConfig {
-
+  
   private static final String dateFormat = "yyyy-MM-dd";
   private static final String dateTimeFormat = "yyyy-MM-dd HH:mm:ss";
 
@@ -70,7 +72,8 @@ public class BookingBootConfig {
   @Bean
   public ThreadPoolTaskExecutor taskExecutor() {
     ThreadPoolTaskExecutor exec = new ThreadPoolTaskExecutor();
-    exec.setThreadNamePrefix("rs-exec-");
+    exec.setCorePoolSize(100);
+    exec.setThreadNamePrefix("task-");
     return exec;
   }
 
@@ -82,12 +85,12 @@ public class BookingBootConfig {
   public ThreadPoolTaskScheduler taskScheduler() {
     ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
     taskScheduler.setPoolSize(100);
-    taskScheduler.setThreadNamePrefix("rs-sch-");
+    taskScheduler.setThreadNamePrefix("sch-");
     return taskScheduler;
   }
-
+  
   @Bean
-  CorsConfigurationSource corsConfigurationSource() {
+  public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedOrigins(Arrays.asList("*"));
     configuration.setAllowedMethods(Arrays.asList("*"));

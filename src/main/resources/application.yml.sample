@@ -38,5 +38,12 @@ springdoc:
     #For sorting tags alphabetically
     tagsSorter: alpha
 
+jwt:
+  key-store-file: classpath:/keystore/booking-jwt.p12
+  key-store-pass: secret
+  key-alias: jwt
+  key-pass: secret
+  token-expires-min: 30
+
 app:
   workingDir: work/booking-api
