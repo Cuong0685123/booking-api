@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -27,6 +28,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  */
 @EnableJpaRepositories(basePackages = {"com.tc.booking.repo"})
 @EntityScan(basePackages = {"com.tc.booking.model"})
+@ComponentScan(basePackages = {"com.tc.booking"})
+
+
 @Configuration
 public class BookingBootConfig {
 
