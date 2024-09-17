@@ -1,70 +1,60 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tc.booking.api.web;
 
-import com.tc.booking.model.entity.User;
+import com.tc.booking.model.entity.Account;
+import com.tc.booking.model.entity.Customer;
+import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
 
-/**
- *
- * @author binh
- */
 public class UserInfoDetails implements UserDetails {
 
-  // Changed from 'name' to 'username' for clarity
-  private String username;
-  private String password;
-  private List<GrantedAuthority> authorities;
+    private final Account account;
 
-  public UserInfoDetails(User userInfo,
-      List<String> roles) {
-    this.username = userInfo.getLogin();
-    this.password = userInfo.getPassword();
-    this.authorities = roles
-        .stream()
-        .map(SimpleGrantedAuthority::new)
-        .collect(Collectors.toList());
-  }
+    public UserInfoDetails(Account account) {
+        this.account = account;
+    }
 
-  @Override
-  public String getUsername() {
-    return username;
-  }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Return authorities based on your Account roles
+        // Example implementation: adjust based on your actual roles/authorities
+        return List.of(new SimpleGrantedAuthority("ROLE_USER")); // Adjust as needed
+    }
 
-  @Override
-  public String getPassword() {
-    return password;
-  }
+    @Override
+    public String getPassword() {
+        return account.getPassword();
+    }
 
-  @Override
-  public boolean isAccountNonExpired() {
-    return true; // Implement your logic if you need this
-  }
+    @Override
+    public String getUsername() {
+        return account.getUsername();
+    }
 
-  @Override
-  public boolean isAccountNonLocked() {
-    return true; // Implement your logic if you need this
-  }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true; // Adjust based on your account expiration logic
+    }
 
-  @Override
-  public boolean isCredentialsNonExpired() {
-    return true; // Implement your logic if you need this
-  }
+    @Override
+    public boolean isAccountNonLocked() {
+        return true; // Adjust based on your account lock logic
+    }
 
-  @Override
-  public boolean isEnabled() {
-    return true; // Implement your logic if you need this
-  }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true; // Adjust based on your credentials expiration logic
+    }
 
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    return authorities;
-  }
+    @Override
+    public boolean isEnabled() {
+        return true; // Adjust based on your account enabled logic
+    }
+
+    // Add method to retrieve the Customer from Account
+    public Customer getCustomer() {
+        return account.getCustomer(); // Ensure this method is available in Account
+    }
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tc.booking.api;
 
 import com.tc.booking.api.web.JwtAuthFilter;
@@ -35,9 +31,12 @@ public class SecurityConfig {
   @Autowired
   private JwtAuthFilter authFilter;
 
+  @Autowired
+  private UserInfoService userInfoService; // Inject UserInfoService
+
   @Bean
   public UserDetailsService userDetailsService() {
-    return new UserInfoService(); // Ensure UserInfoService implements UserDetailsService
+    return userInfoService; // Use the injected UserInfoService
   }
 
   @Bean
@@ -49,8 +48,12 @@ public class SecurityConfig {
         .requestMatchers(
             "/hello",
             "/auth/welcome",
+             "/register",
+             "/bookings",
             "/login",
-            "/booking/**",
+            "/hotels/add",
+            "/hotels/delete",
+            "/payment/**",
             "/auth/generateToken")
         .permitAll()
         .requestMatchers("/backoffice/**")

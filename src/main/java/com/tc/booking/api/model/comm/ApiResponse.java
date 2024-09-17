@@ -21,6 +21,7 @@ public class ApiResponse {
   public static final String B_NEW = "bNew";
   private List<ApiError> errors;
   private Map<String, Object> data;
+  
 
   @JsonIgnore
   private Map<String, Object> extData;
@@ -62,3 +63,5 @@ public class ApiResponse {
     return extData;
   }
 }
+
+
