@@ -24,12 +24,13 @@ public class AuthController {
   private AuthProxy authProxy;
 
   @PostMapping("/login")
-   @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = "http://localhost:3000")
   public ApiResponse login(@RequestBody LoginReq req) throws BookingException {
     return authProxy.login(req);
   }
 
   @PostMapping("/register")
+  @CrossOrigin(origins = "http://localhost:3000")
   public ApiResponse register(@RequestBody RegisterRequest req) throws BookingException {
     try {
       // Gọi phương thức đăng ký từ AuthProxy hoặc một dịch vụ khác

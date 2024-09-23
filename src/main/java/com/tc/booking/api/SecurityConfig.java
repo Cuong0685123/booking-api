@@ -53,6 +53,8 @@ public class SecurityConfig {
             "/login",
             "/hotels/add",
             "/hotels/delete",
+            "/hotels/all",
+            "/hotels/**",
             "/payment/**",
             "/auth/generateToken")
         .permitAll()
